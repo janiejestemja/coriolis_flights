@@ -36,15 +36,15 @@ corilolis_module
 How to build:
 Run the following command in your Linux terminal:
 
-bash
->>>python setup.py build_ext --inplace
+    bash
+    >>>python setup.py build_ext --inplace
+    
+    For virtual environments, copy the resulting .so file to:
+    
+    bash
+    >>>path_to/venv/lib/python/site-packages/
 
-For virtual environments, copy the resulting .so file to:
-
-bash
->>>path_to/venv/lib/python/site-packages/
-
-datasets # not included in repository
+data # not included in repository
 
     Contains:
         flights_sample_3m.csv: Main flight dataset.
