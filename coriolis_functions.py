@@ -51,6 +51,33 @@ def haversine(lat1, lon1, lat2, lon2):
     # Distance in kilometers
     return c * r
 
+def direction_vector(lat1, lon1, lat2, lon2):
+    """
+    Calculates a unit vector in direction of a trajectory
+
+    Parameters:
+    lat1, lon1 (float): Latitude and Longitude of the first point in degrees.
+    lat2, lon2 (float): Latitude and Longitude of the second point in degrees.
+    
+    Returns:
+    np.array: A three dimensional unit vector, representing the direction along 
+              a trajectory between two points.
+    """
+    # Convert latitude and longitude from degrees to radians
+    lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
+    
+    # Convert to Cartesian coordinates
+    x1, y1, z1 = np.cos(lat1) * np.cos(lon1), np.cos(lat1) * np.sin(lon1), np.sin(lat1)
+    x2, y2, z2 = np.cos(lat2) * np.cos(lon2), np.cos(lat2) * np.sin(lon2), np.sin(lat2)
+    
+    # Calculate the difference
+    diff = np.array([x2 - x1, y2 - y1, z2 - z1])
+
+    # Normalize to get the direction vector
+    direction = diff / np.linalg.norm(diff)  # This gives a unit vector
+    
+    return direction
+
 # Rotation matrix based on latitude
 def rotation_matrix(latitude):
     """
