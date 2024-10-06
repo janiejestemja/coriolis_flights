@@ -54,21 +54,21 @@
 - learn benchmarking
 
 ## Motivation
-*"What is data-science?"*
-*"Science on data?"*
-*"Then let's skip the experiment, get some data and do some science..."*
-*"But do not read the documentation of the data, ok?"* 
-*"That is a waste of time, you know that, right?"* 
-*"It's science, isn't it? - So read out of and not into the data..."*
-*"Ok, i got the data, what now?"*
-*"Copy-paste the description of the file without reading it and keep it as a note for later."* 
+*"What is data-science?"* -
+*"Science on data?"* -
+*"Then let's skip the experiment, get some data and do some science..."* -
+*"But do not read the documentation of the data, ok?"* -
+*"That is a waste of time, you know that, right?"* -
+*"It's science, isn't it? - So read out of and not into the data..."* -
+*"Ok, i got the data, what now?"* -
+*"Copy-paste the description of the file without reading it and keep it as a note for later."* -
 *"Wait...why should i do all that? 
 ...i have no idea what data-science means.
 ...i have just learned basics of c++ and python. 
 ...i am not confident enough to figure out what units are used in the data!
 ...can't i just read the documentation, please?
-...it's my first project, come on, why make it so hard?"*
-*"To learn problem solving you need a problem, right? There you go..."*
+...it's my first project, come on, why make it so hard?"* -
+*"To learn problem solving you need a problem, right? There you go..."* -
 
 ## Journey
 ### Creating Context.

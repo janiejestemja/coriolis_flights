@@ -66,8 +66,8 @@ path_to/venv/lib/python/site-packages/
 - Jupyter Notebook - 7.2.1
 
 ## Data
-- the core dataset of the project consists of flight information for around 3 million flights, i stumbled over on kaggle.
-- the additional dataset i found on kaggle after i figured out "IATA" codes are primary keys for U.S. airports to gain access to geographical coordinates.
+- the core dataset of the project consists of flight information for around 3 million flights.
+- the additional dataset is for geographical coordinates correspondend to the airports in (most) of the core dataset.
 
 ## Interim Results
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
