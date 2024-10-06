@@ -1,0 +1,13 @@
+numpy
+pandas
+geopandas
+
+matplotlib
+seaborn
+
+shapely
+geodatasets
+
+scikit-learn
+scipy
+joblib
