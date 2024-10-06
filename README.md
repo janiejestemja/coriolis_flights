@@ -3,6 +3,9 @@
 ####  and basics of machiene learning.
 ###### An experimental learning project.
 
+## Table of Contents
+- [Installation](#installation)
+
 ## Installation 
 #### 1. Clone the repo
 ```
@@ -34,14 +37,14 @@ do not forget to copy/move the .so file to the python packages location.
 path_to/venv/lib/python/site-packages/
 ```
 
-## 4. Data
+## Data
 - the core dataset of the project consists of flight information for around 3 million flights i stumbled over on kaggle.
 - the additional dataset i found on kaggle after i figured out "IATA" codes are primary keys for U.S. airports to gain access to geographical coordinates.
 
-## 5. Interim Results
+## Interim Results
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
 
 *Section yet to be written...*
 
-## 6. License 
+## License 
 [MIT](LICENSE.txt)
