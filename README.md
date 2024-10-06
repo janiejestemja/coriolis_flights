@@ -5,6 +5,9 @@
 
 ## Table of Contents
 - [Installation](#installation)
+- [Data](#data)
+- [Interim results](#interim-results)
+- [LICENSE](#license)
 
 ## Installation 
 #### 1. Clone the repo
@@ -23,7 +26,7 @@ pip install -r requirements.txt
 
 How to build:
 
-Change directory to ~/coriolis_module/ and run:
+Change directory to ```~/coriolis_flights/coriolis_module/``` and run:
 ```
 python setup.py build_ext --inplace
 ```
