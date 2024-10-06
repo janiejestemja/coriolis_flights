@@ -1,3 +1,5 @@
-# Ignore datasets
-data/
-*.csv
+# Ignore data and directories
+/.ipynb_checkpoints/
+/__pycache__/
+/data/
+

@@ -37,7 +37,7 @@ Change directory to ```~/coriolis_flights/coriolis_module/``` and run:
 ```
 python setup.py build_ext --inplace
 ```
-If build is successful a .so will be compiled and stored in the current directory. 
+If build is successful a ".so" will be compiled and saved in the current directory. 
 
 
 *For users of virtual environments:* 
