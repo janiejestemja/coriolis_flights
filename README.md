@@ -14,10 +14,8 @@
 git clone https://github.com/janiejestemja/coriolis_flights.git
 ```
 #### 2. Install the dependencies
-
 ```
 pip install -r requirements.txt
-
 ```
 #### 3. Additional setup
 ##### - Python 3.12.3
@@ -39,16 +37,13 @@ python setup.py build_ext --inplace
 ```
 If build is successful a ".so" will be compiled and saved in the current directory. 
 
-
 *For users of virtual environments:* 
 
 please do not forget to copy/move the .so file to the python packages location.
 ```
 path_to/venv/lib/python/site-packages/
 ```
-
 *For users not familiar with pythons virtual environments visit [python documentation](https://docs.python.org/3/library/venv.html) for more information.*
-
 
 ## Dependencies
 #### Versions of Python libraries in use:
