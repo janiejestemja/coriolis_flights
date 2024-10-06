@@ -15,9 +15,8 @@ pip install -r requirements.txt
 
 ```
 #### 3. Additional setup
-- Python 3.12.3
-- g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
-
+##### - Python 3.12.3
+##### - g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
 
 How to build:
 
@@ -40,9 +39,9 @@ path_to/venv/lib/python/site-packages/
 - the additional dataset i found on kaggle after i figured out "IATA" codes are primary keys for U.S. airports to gain access to geographical coordinates.
 
 ## 5. Interim Results
-###### *"Despite our analysis our results remain questionable and insignificant."*
+###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
 
 *Section yet to be written...*
 
 ## 6. License 
-[MIT](LICENSE)
+[MIT](LICENSE.txt)
