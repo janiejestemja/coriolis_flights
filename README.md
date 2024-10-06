@@ -62,7 +62,7 @@ path_to/venv/lib/python/site-packages/
 - scipy - 1.14.1
 - joblib - 1.4.2
 
-#### Text-Editor: 
+#### Version of Text-Editor: 
 - Jupyter Notebook - 7.2.1
 
 ## Data
@@ -71,6 +71,20 @@ path_to/venv/lib/python/site-packages/
 
 ## Interim Results
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
+
+First experimental evaluations were calculated without proper data-cleaning!!!
+### about the coriolis-drift
+- 3,758,590,035.77 : total traveled distance by non cancelled flights as calculated per [haversine formula](https://en.wikipedia.org/wiki/Haversine_formula) [km]
+- 1,082,699,784.38 : total drift distance [km]
+- 0.2881 : average-drift-factor
+- 28.81 : %-value of average-coriolis-drift in dataframe
+
+### about performance of python and c++ 
+The implementation of c++ done in this project suggests based on timestamps in ```coriolis_analysis_03.ipynb && coriolis_analysis_03b.ipynb``` a decrease of ca. 50% in calculation-time in comparison of implementing a similar function in python - on my private machiene.
+
+####Time to execute calculations:
+- c++:     62s
+- python: 125s
 
 *Section yet to be written...*
 

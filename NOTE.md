@@ -44,9 +44,9 @@
 - calculations for the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) in numpy as well as sklearn
 
 ### unmanaged
-#### *"reading the documentation, still have the note with the copy-paste from the source..."*
+*"reading the documentation, still have the note with the copy-paste from the source..."*
 ##### *"general section"*
-- add exception and errorhandling
+- add exception- and errorhandling
 
 ##### *"something not like benchmarking"* 
 ``` coriolis_analysis_03.ipynb && coriolis_analysis_03b.ipynb ```
@@ -68,7 +68,7 @@
 ...i am not confident enough to figure out what units are used in the data!
 ...can't i just read the documentation, please?
 ...it's my first project, come on, why make it so hard?"* -
-*"To learn problem solving you need a problem, right? There you go..."* -
+*"To learn problem solving you need a problem, right? There you go..."*
 
 ## Journey
 ### Creating Context.
