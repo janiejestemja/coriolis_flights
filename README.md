@@ -1,6 +1,7 @@
 # Coriolis Flight Data Analysis 
-###### A Learning Journey in Data Science and C++ Integration.
-An experimental learning project - correctness of the results not guaranteed - use with caution.
+### A Learning Journey in 
+#### Data Science and C++ Integration and basics of machiene learning.
+###### An experimental learning project - correctness of the results not guaranteed - use with caution.
 
 ## Installation 
 ### 1. Clone the repo
