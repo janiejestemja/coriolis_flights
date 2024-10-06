@@ -62,7 +62,7 @@ path_to/venv/lib/python/site-packages/
 
 - shapely - 2.0.6
 - geodatasets - 2024.8.0
-- 
+
 - scikit-learn - 1.5.2
 - scipy - 1.14.1
 - joblib - 1.4.2
