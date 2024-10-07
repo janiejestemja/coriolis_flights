@@ -82,7 +82,7 @@ First experimental evaluations were calculated without proper data-cleaning!!!
 ### about performance of python and c++ 
 The implementation of c++ done in this project suggests based on timestamps in ```coriolis_analysis_03.ipynb && coriolis_analysis_03b.ipynb``` a decrease of ca. 50% in calculation-time in comparison of implementing a similar function in python - on my private machiene.
 
-### Time to execute calculations:
+#### Time to execute calculations:
 - c++:     62s
 - python: 125s
 
