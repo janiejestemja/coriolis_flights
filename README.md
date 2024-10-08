@@ -98,9 +98,13 @@ The implementation of c++ done in this project suggests based on timestamps in `
 #### Time to execute calculations:
 ---
 **c++**   :  62s
+
+
 **python**: 125s
 
+
 *Section yet to be written...*
+
 
 ## License 
 [MIT](LICENSE.txt)
