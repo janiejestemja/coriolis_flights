@@ -31,8 +31,9 @@ sudo apt install g++
 ```
 
 
-##### How to build:
 *Checking for "<Python.h>"*
+
+
 Before building run 
 ```bash
 dnf list installed | grep python3-devel
@@ -47,6 +48,8 @@ sudo dnf install python3-devel
 
 
 *Actually building the module*
+
+
 Change directory to ```~/coriolis_flights/coriolis_module/``` and run:
 ```bash
 python setup.py build_ext --inplace
@@ -82,20 +85,21 @@ path_to/venv/lib/python/site-packages/
 
 First experimental evaluations were calculated without proper data-cleaning!!!
 ### about the coriolis-drift
-- 3,758,590,035.77 | total traveled distance by non cancelled flights as calculated per [haversine formula](https://en.wikipedia.org/wiki/Haversine_formula) [km]
-- 1,082,699,784.38 | total drift distance [km]
-- 0.2881 | average-drift-factor
-- 28.81 | %-value of average-coriolis-drift in dataframe
+- 3,758,590,035.77 or 3.79e9 : total traveled distance by non cancelled flights as calculated per [haversine formula](https://en.wikipedia.org/wiki/Haversine_formula) [km]
+- 1,082,699,784.38 or 1.08e9 : total drift distance [km]
+- 0.2881 : average-drift-factor
+- 28.81 : %-value of average-coriolis-drift in dataframe
 
 ### about performance of python and c++ 
 The implementation of c++ done in this project suggests based on timestamps in ```coriolis_analysis_03.ipynb && coriolis_analysis_03b.ipynb``` a decrease of ca. 50% in calculation-time in comparison of implementing a similar function in python - on my private machiene.
 
 #### Time to execute calculations:
-|------------|-----------|
-|**c++**     |        62s|
-|**python**  |       125s|
+**c++**   :  62s
+**python**: 125s
 
 *Section yet to be written...*
+
+
 
 ## License 
 [MIT](LICENSE.txt)
