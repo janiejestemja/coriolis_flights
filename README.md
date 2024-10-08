@@ -28,7 +28,7 @@ g++ --version
 ```
 and if not install it via: 
 ```bash
-sudo apt install g++
+sudo dnf install g++
 ```
 
 
