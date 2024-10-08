@@ -81,17 +81,19 @@ path_to/venv/lib/python/site-packages/
 
 ## Interim Results
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
----
 
-First experimental evaluations were calculated without proper data-cleaning!!!
-#### about the coriolis-drift
+
+---
+First experimental evaluations were calculated without proper data-cleaning on a linux debian distribution!!!
+
+about the coriolis-drift
 ---
 - 3,758,590,035.77 or 3.79e9 : total traveled distance by non cancelled flights as calculated per [haversine formula](https://en.wikipedia.org/wiki/Haversine_formula) [km]
 - 1,082,699,784.38 or 1.08e9 : total drift distance [km]
 - 0.2881 : average-drift-factor
 - 28.81 : %-value of average-coriolis-drift in dataframe
 
-#### about performance of python and c++ 
+about performance of python and c++ 
 ---
 The implementation of c++ done in this project suggests based on timestamps in ```coriolis_analysis_03.ipynb && coriolis_analysis_03b.ipynb``` a decrease of ca. 50% in calculation-time in comparison of implementing a similar function in python - on my private machiene.
 
@@ -105,6 +107,7 @@ The implementation of c++ done in this project suggests based on timestamps in `
 
 *Section yet to be written...*
 
+*Switched my os from debian to fedora at this point, and rerun coriolis_analysis_03.ipynb & coriolis_analysis_03b.ipynb, so the results mentioned above do not match those in the notebooks anymore.*
 
 ## License 
 [MIT](LICENSE.txt)
