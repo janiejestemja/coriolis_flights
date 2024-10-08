@@ -9,7 +9,6 @@
 - [LICENSE](#license)
 
 ## Installation 
----
 #### 1. Clone the repo
 ```bash
 git clone https://github.com/janiejestemja/coriolis_flights.git
@@ -33,7 +32,7 @@ sudo apt install g++
 ```
 
 
-*Checking for "<Python.h>"*
+#### *Checking for "<Python.h>"*
 ---
 Before building run 
 ```bash
@@ -48,7 +47,7 @@ sudo dnf install python3-devel
 ```
 
 
-*Actually building the module*
+#### *Actually building the module*
 ---
 Change directory to ```~/coriolis_flights/coriolis_module/``` and run:
 ```bash
@@ -65,9 +64,8 @@ path_to/venv/lib/python/site-packages/
 *For users not familiar with pythons virtual environments visit [python documentation](https://docs.python.org/3/library/venv.html) for more information.*
 
 ## Dependencies
----
 #### Versions of Python libraries in use:
-
+---
 - numpy - 2.1.0 
 - pandas - 2.2.2
 - geopandas - 1.0.1 
@@ -78,23 +76,22 @@ path_to/venv/lib/python/site-packages/
 - Jupyter Notebook - 7.2.1
 
 ## Data
----
 - the core dataset of the project consists of flight information for around 3 million flights.
 - the additional dataset is for geographical coordinates correspondend to the airports in (most) of the core dataset.
 
 ## Interim Results
----
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
+---
 
 First experimental evaluations were calculated without proper data-cleaning!!!
-### about the coriolis-drift
+#### about the coriolis-drift
 ---
 - 3,758,590,035.77 or 3.79e9 : total traveled distance by non cancelled flights as calculated per [haversine formula](https://en.wikipedia.org/wiki/Haversine_formula) [km]
 - 1,082,699,784.38 or 1.08e9 : total drift distance [km]
 - 0.2881 : average-drift-factor
 - 28.81 : %-value of average-coriolis-drift in dataframe
 
-### about performance of python and c++ 
+#### about performance of python and c++ 
 ---
 The implementation of c++ done in this project suggests based on timestamps in ```coriolis_analysis_03.ipynb && coriolis_analysis_03b.ipynb``` a decrease of ca. 50% in calculation-time in comparison of implementing a similar function in python - on my private machiene.
 
@@ -104,8 +101,6 @@ The implementation of c++ done in this project suggests based on timestamps in `
 **python**: 125s
 
 *Section yet to be written...*
-
-
 
 ## License 
 [MIT](LICENSE.txt)
