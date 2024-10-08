@@ -1,5 +1,5 @@
 # Ignore data and directories
-/.ipynb_checkpoints/
-/__pycache__/
-/data/
-
+.ipynb_checkpoints/
+__pycache__/
+coriolis_module/build/
+data/
