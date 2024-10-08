@@ -105,9 +105,15 @@ The implementation of c++ done in this project suggests based on timestamps in `
 **python**: 125s
 
 
+*Switched my os from debian to redhat at this point, and rerun coriolis_analysis_03.ipynb & coriolis_analysis_03b.ipynb, so the results mentioned above do not match those in the notebooks anymore. Results were:* 
+
+
+*c++: 66s*
+*python: 139s*
+
+
 *Section yet to be written...*
 
-*Switched my os from debian to fedora at this point, and rerun coriolis_analysis_03.ipynb & coriolis_analysis_03b.ipynb, so the results mentioned above do not match those in the notebooks anymore.*
 
 ## License 
 [MIT](LICENSE.txt)
