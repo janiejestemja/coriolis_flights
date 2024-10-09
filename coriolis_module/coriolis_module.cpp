@@ -80,9 +80,9 @@ static PyObject* py_radius_at_latitude(PyObject* self, PyObject* args) {
 }
 
 // Coriolis acceleration calculation
-std::vector<std::vector<double>> coriolis_acc(double lat1, double lat2, const std::vector<double>& scaled_direction, double time, int num_steps) {
+std::vector<std::vector<double>> coriolis_acc(double lat1, double lat2, double x_dir, double y_dir, double z_dir, double time, int num_steps) {
     std::vector<std::vector<double>> coriolis_accelerations(num_steps, std::vector<double>(3));
-
+    
     for (int i = 0; i < num_steps; ++i) {
         double t = (time * i) / (num_steps - 1);
         double current_latitude = lat1 + (t / time) * (lat2 - lat1);
@@ -90,46 +90,40 @@ std::vector<std::vector<double>> coriolis_acc(double lat1, double lat2, const st
         auto R = rotation_matrix(current_latitude);
         // Calculate Coriolis acceleration
         for (int j = 0; j < 3; ++j) {
-            coriolis_accelerations[i][j] = R[j][0] * scaled_direction[0] +
-                                            R[j][1] * scaled_direction[1] +
-                                            R[j][2] * scaled_direction[2];
+            coriolis_accelerations[i][j] = R[j][0] * x_dir +
+                                           R[j][1] * y_dir +
+                                           R[j][2] * z_dir;
         }
     }
     return coriolis_accelerations;
 }
 
-// Wrapper for coriolis_acc
+// Python wrapper for coriolis_acc
 static PyObject* py_coriolis_acc(PyObject* self, PyObject* args) {
-    double lat1, lat2, time;
+    double lat1, lat2, x_dir, y_dir, z_dir, time;
     int num_steps;
-    PyObject* py_scaled_direction;
 
-    if (!PyArg_ParseTuple(args, "ddOdi", &lat1, &lat2, &py_scaled_direction, &time, &num_steps)) {
+    // Parse Python arguments: lat1, lat2, x_dir, y_dir, z_dir, time, num_steps
+    if (!PyArg_ParseTuple(args, "ddddddi", &lat1, &lat2, &x_dir, &y_dir, &z_dir, &time, &num_steps)) {
         return nullptr;
     }
 
-    // Extract scaled_direction from Python list or tuple
-    std::vector<double> scaled_direction;
-    if (PyList_Check(py_scaled_direction) || PyTuple_Check(py_scaled_direction)) {
-        for (Py_ssize_t i = 0; i < PyList_Size(py_scaled_direction); ++i) {
-            scaled_direction.push_back(PyFloat_AsDouble(PyList_GetItem(py_scaled_direction, i)));
-        }
+    // Call the C++ coriolis_acc function
+    std::vector<std::vector<double>> result = coriolis_acc(lat1, lat2, x_dir, y_dir, z_dir, time, num_steps);
+
+    // Convert the result to a Python list of lists
+    PyObject* py_result = PyList_New(num_steps);
+    for (int i = 0; i < num_steps; ++i) {
+        PyObject* py_row = PyList_New(3);
+        PyList_SetItem(py_row, 0, PyFloat_FromDouble(result[i][0]));
+        PyList_SetItem(py_row, 1, PyFloat_FromDouble(result[i][1]));
+        PyList_SetItem(py_row, 2, PyFloat_FromDouble(result[i][2]));
+        PyList_SetItem(py_result, i, py_row);
     }
 
-    auto accelerations = coriolis_acc(lat1, lat2, scaled_direction, time, num_steps);
-    
-    // Build Python list of lists for output
-    PyObject* py_result = PyList_New(num_steps);
-    for (size_t i = 0; i < accelerations.size(); ++i) {
-        PyObject* py_inner = PyList_New(3);
-        for (size_t j = 0; j < 3; ++j) {
-            PyList_SetItem(py_inner, j, Py_BuildValue("d", accelerations[i][j]));
-        }
-        PyList_SetItem(py_result, i, py_inner);
-    }
-    
     return py_result;
 }
+
 
 // Calculate velocities based on Coriolis acceleration
 std::vector<std::vector<double>> calculate_velocities(const std::vector<std::vector<double>>& coriolis_acceleration, double time, int num_steps) {
@@ -241,47 +235,6 @@ static PyObject* py_calculate_drift_distances(PyObject* self, PyObject* args) {
     return py_result;
 }
 
-// Calculate total drift based on the row data
-double calculate_total_drift(const std::vector<double>& row, double airtime, int num_steps = 100) {
-    double average_velocity = row[0] / airtime; // Assuming row[0] is 'haversine_distance'
-    std::vector<double> scaled_direction = { 
-        row[1] * average_velocity, // x_direction
-        row[2] * average_velocity, // y_direction
-        row[3] * average_velocity  // z_direction
-    };
-
-    auto coriolis_accelerations = coriolis_acc(row[4], row[5], scaled_direction, airtime, num_steps); // row[4] and row[5] are latitudes
-    auto coriolis_velocity = calculate_velocities(coriolis_accelerations, airtime, num_steps);
-    auto coriolis_drift_distance = calculate_drift_distances(coriolis_velocity, airtime, num_steps);
-    
-    // Calculate magnitude of the final drift distance
-    double total_drift = std::sqrt(std::pow(coriolis_drift_distance.back()[0], 2) + 
-                                    std::pow(coriolis_drift_distance.back()[1], 2) + 
-                                    std::pow(coriolis_drift_distance.back()[2], 2));
-    return total_drift;
-}
-
-// Wrapper for calculate_total_drift
-static PyObject* py_calculate_total_drift(PyObject* self, PyObject* args) {
-    PyObject* py_row;
-    double airtime;
-    int num_steps = 100; // Default value
-
-    if (!PyArg_ParseTuple(args, "Od|i", &py_row, &airtime, &num_steps)) {
-        return nullptr;
-    }
-
-    // Extract row data from Python list
-    std::vector<double> row;
-    if (PyList_Check(py_row)) {
-        for (Py_ssize_t i = 0; i < PyList_Size(py_row); ++i) {
-            row.push_back(PyFloat_AsDouble(PyList_GetItem(py_row, i)));
-        }
-    }
-
-    double total_drift = calculate_total_drift(row, airtime, num_steps);
-    return Py_BuildValue("d", total_drift);
-}
 
 // Method definitions for the module
 static PyMethodDef CoriolisMethods[] = {
@@ -291,7 +244,6 @@ static PyMethodDef CoriolisMethods[] = {
     {"coriolis_acc", py_coriolis_acc, METH_VARARGS, "Calculate Coriolis accelerations"},
     {"calculate_velocities", py_calculate_velocities, METH_VARARGS, "Calculate velocities from Coriolis acceleration"},
     {"calculate_drift_distances", py_calculate_drift_distances, METH_VARARGS, "Calculate drift distances from velocities"},
-    {"calculate_total_drift", py_calculate_total_drift, METH_VARARGS, "Calculate total drift from row data"},
     {nullptr, nullptr, 0, nullptr} // Sentinel
 };
 
