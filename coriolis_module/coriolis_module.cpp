@@ -2,6 +2,25 @@
 #include <cmath>
 #include <vector>
 
+
+// Function to calculate Earth's radius at a given latitude
+double radius_at_latitude(double lat) {
+    double lat_rad = lat * M_PI / 180.0; // Convert latitude from degrees to radians
+    return 6371.0 * (1 - 0.5 * (1 - std::cos(lat_rad))) + 
+           6378.137 * (0.5 * (1 - std::cos(lat_rad)));
+}
+
+// Wrapper for radius_at_latitude
+static PyObject* py_radius_at_latitude(PyObject* self, PyObject* args) {
+    double lat;
+    if (!PyArg_ParseTuple(args, "d", &lat)) {
+        return nullptr;
+    }
+    double radius = radius_at_latitude(lat);
+    return Py_BuildValue("d", radius);
+}
+
+
 // Function to calculate the direction vector between two lat/lon points
 std::vector<double> direction_vector(double lat1, double lon1, double lat2, double lon2) {
     lat1 = lat1 * M_PI / 180.0;
@@ -60,23 +79,6 @@ static PyObject* py_rotation_matrix(PyObject* self, PyObject* args) {
         matrix[0][0], matrix[0][1], matrix[0][2],
         matrix[1][0], matrix[1][1], matrix[1][2],
         matrix[2][0], matrix[2][1], matrix[2][2]);
-}
-
-// Function to calculate Earth's radius at a given latitude
-double radius_at_latitude(double lat) {
-    double lat_rad = lat * M_PI / 180.0; // Convert latitude from degrees to radians
-    return 6371.0 * (1 - 0.5 * (1 - std::cos(lat_rad))) + 
-           6378.137 * (0.5 * (1 - std::cos(lat_rad)));
-}
-
-// Wrapper for radius_at_latitude
-static PyObject* py_radius_at_latitude(PyObject* self, PyObject* args) {
-    double lat;
-    if (!PyArg_ParseTuple(args, "d", &lat)) {
-        return nullptr;
-    }
-    double radius = radius_at_latitude(lat);
-    return Py_BuildValue("d", radius);
 }
 
 // Coriolis acceleration calculation
@@ -238,9 +240,9 @@ static PyObject* py_calculate_drift_distances(PyObject* self, PyObject* args) {
 
 // Method definitions for the module
 static PyMethodDef CoriolisMethods[] = {
+    {"radius_at_latitude", py_radius_at_latitude, METH_VARARGS, "Calculate Earth's radius at a given latitude"},
     {"direction_vector", py_direction_vector, METH_VARARGS, "Calculate direction vector between two lat/lon points"},
     {"rotation_matrix", py_rotation_matrix, METH_VARARGS, "Calculate the rotation matrix based on latitude"},
-    {"radius_at_latitude", py_radius_at_latitude, METH_VARARGS, "Calculate Earth's radius at a given latitude"},
     {"coriolis_acc", py_coriolis_acc, METH_VARARGS, "Calculate Coriolis accelerations"},
     {"calculate_velocities", py_calculate_velocities, METH_VARARGS, "Calculate velocities from Coriolis acceleration"},
     {"calculate_drift_distances", py_calculate_drift_distances, METH_VARARGS, "Calculate drift distances from velocities"},
