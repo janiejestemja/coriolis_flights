@@ -1,4 +1,5 @@
 import numpy as np
+import coriolis_module
 
 def main():
     print("This file is not intended to be run. It contains functiondefintions")
@@ -129,20 +130,15 @@ def calculate_drift_distances(coriolis_velocity, time, num_steps):
 
 # Updated total drift calculation
 def calculate_total_drift(row, airtime, num_steps=100):
-    average_velocity = row["haversine_distance"] / airtime
-    scaled_direction = np.array([
-        row["x_direction"] * average_velocity,
-        row["y_direction"] * average_velocity,
-        row["z_direction"] * average_velocity
-    ])
 
-    coriolis_accelerations = coriolis_acc(
+    coriolis_accelerations = coriolis_module.coriolis_acc(
         row["LATITUDE_ORIGIN"], row["LATITUDE_DEST"], 
-        scaled_direction, airtime, num_steps
+        row["x_direction"], row["y_direction"], row["z_direction"],
+        airtime, num_steps
     )
 
-    coriolis_velocity = calculate_velocities(coriolis_accelerations, airtime, num_steps)
-    coriolis_drift_distance = calculate_drift_distances(coriolis_velocity, airtime, num_steps)
+    coriolis_velocity = coriolis_module.calculate_velocities(coriolis_accelerations, airtime, num_steps)
+    coriolis_drift_distance = coriolis_module.calculate_drift_distances(coriolis_velocity, airtime, num_steps)
 
     return np.linalg.norm(coriolis_drift_distance[-1])
 
