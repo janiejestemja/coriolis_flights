@@ -20,6 +20,39 @@ static PyObject* py_radius_at_latitude(PyObject* self, PyObject* args) {
     return Py_BuildValue("d", radius);
 }
 
+// Function to calculate the great-circle distance using the Haversine formula
+double haversine(double lat1, double lon1, double lat2, double lon2) {
+    // Convert latitude and longitude from degrees to radians
+    lat1 = lat1 * M_PI / 180.0;
+    lon1 = lon1 * M_PI / 180.0;
+    lat2 = lat2 * M_PI / 180.0;
+    lon2 = lon2 * M_PI / 180.0;
+
+    // Haversine formula
+    double dlon = lon2 - lon1;
+    double dlat = lat2 - lat1;
+    double a = std::pow(std::sin(dlat / 2.0), 2) + 
+               std::cos(lat1) * std::cos(lat2) * std::pow(std::sin(dlon / 2.0), 2);
+    double c = 2.0 * std::atan2(std::sqrt(a), std::sqrt(1.0 - a));
+
+    // Get Earth's radius based on the average latitude of the two points
+    double avg_lat = (lat1 + lat2) / 2.0 * 180.0 / M_PI;  // Convert back to degrees for radius calc
+    double r = radius_at_latitude(avg_lat);
+
+    // Distance in kilometers
+    return c * r;
+}
+
+// Wrapper for the haversine function
+static PyObject* py_haversine(PyObject* self, PyObject* args) {
+    double lat1, lon1, lat2, lon2;
+    if (!PyArg_ParseTuple(args, "dddd", &lat1, &lon1, &lat2, &lon2)) {
+        return nullptr;
+    }
+    double distance = haversine(lat1, lon1, lat2, lon2);
+    return Py_BuildValue("d", distance);
+}
+
 
 // Function to calculate the direction vector between two lat/lon points
 std::vector<double> direction_vector(double lat1, double lon1, double lat2, double lon2) {
@@ -246,6 +279,7 @@ static PyMethodDef CoriolisMethods[] = {
     {"coriolis_acc", py_coriolis_acc, METH_VARARGS, "Calculate Coriolis accelerations"},
     {"calculate_velocities", py_calculate_velocities, METH_VARARGS, "Calculate velocities from Coriolis acceleration"},
     {"calculate_drift_distances", py_calculate_drift_distances, METH_VARARGS, "Calculate drift distances from velocities"},
+    {"haversine", py_haversine, METH_VARARGS, "Calculate the great-circle distance using the Haversine formula"},
     {nullptr, nullptr, 0, nullptr} // Sentinel
 };
 
