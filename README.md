@@ -82,7 +82,25 @@ path_to/venv/lib/python/site-packages/
 ## Interim Results
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
 
+Evaluations are experimental at this stage, use with caution.
 
+#### Coriolis drift calculations
+- total travelled distance 
+- total drifted distance
+- average factor 
+- average percentage for drift per distance
+
+#### C++ implementation
+---
+Most of the functions in **coriolis_functions.py** have a *translation* in **coriolis_module.cpp** in addition to corresponding wrapper-functions. 
+
+- **coriolis_analysis_02.ipynb** does the calculations in *"pure"* python, and ran for S seconds. 
+
+
+- **coriolis_analysis_02b.ipynb** does most of the calculations in c++, and ran for S seconds.
+
+
+#### Machiene learning
 *Section yet to be written...*
 
 
