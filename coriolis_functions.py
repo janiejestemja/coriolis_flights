@@ -52,6 +52,33 @@ def haversine(lat1, lon1, lat2, lon2):
     # Distance in kilometers
     return c * r
 
+def direction_vector(lat1, lon1, lat2, lon2):
+    """
+    Calculates a unit vector in direction of a trajectory
+
+    Parameters:
+    lat1, lon1 (float): Latitude and Longitude of the first point in degrees.
+    lat2, lon2 (float): Latitude and Longitude of the second point in degrees.
+    
+    Returns:
+    np.array: A three dimensional unit vector, representing the direction along 
+              a trajectory between two points.
+    """
+    # Convert latitude and longitude from degrees to radians
+    lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
+    
+    # Convert to Cartesian coordinates
+    x1, y1, z1 = np.cos(lat1) * np.cos(lon1), np.cos(lat1) * np.sin(lon1), np.sin(lat1)
+    x2, y2, z2 = np.cos(lat2) * np.cos(lon2), np.cos(lat2) * np.sin(lon2), np.sin(lat2)
+    
+    # Calculate the difference
+    diff = np.array([x2 - x1, y2 - y1, z2 - z1])
+
+    # Normalize to get the direction vector
+    direction = diff / np.linalg.norm(diff)  # This gives a unit vector
+    
+    return direction
+
 # Rotation matrix based on latitude
 def rotation_matrix(latitude):
     """
@@ -106,30 +133,80 @@ def coriolis_acc(lat1, lat2, scaled_direction, time, num_steps):
     return np.array(coriolis_accelerations)
 
 
-# Function to calculate velocities
-def calculate_velocities(coriolis_acceleration, time, num_steps):
+# Coriolis integral for velocity and drift distance
+def coriolis_integral(coriolis_acceleration, time, num_steps):
+    """
+    Integrates Coriolis acceleration to obtain velocity and drift distance over time.
+
+    Parameters:
+    coriolis_acceleration (np.array): An array of Coriolis accelerations (in km/s²).
+    time (float): Total time for integration.
+    num_steps (int): Number of time steps for integration.
+
+    Returns:
+    tuple: 
+        - np.array: Coriolis velocity (in km/s).
+        - np.array: Coriolis drift distance (in km).
+    """
     time_steps = np.linspace(0, time, num_steps)
-    coriolis_velocity = np.zeros((num_steps, 3))
+    coriolis_velocity = np.zeros((num_steps, 3))  # Assuming a 3D vector
+    coriolis_drift_distance = np.zeros((num_steps, 3))  # Same shape for distance
 
+    # Integrate Coriolis acceleration to get velocity
     for i in range(1, num_steps):
-        coriolis_velocity[i] = coriolis_velocity[i - 1] + \
-            0.5 * (coriolis_acceleration[i] + coriolis_acceleration[i - 1]) * (time_steps[i] - time_steps[i - 1])
+        coriolis_velocity[i] = coriolis_velocity[i - 1] \
+            + 0.5 * (coriolis_acceleration[i] + coriolis_acceleration[i - 1]) \
+            * (time_steps[i] - time_steps[i - 1])
 
-    return coriolis_velocity
-
-# Function to calculate drift distances
-def calculate_drift_distances(coriolis_velocity, time, num_steps):
-    time_steps = np.linspace(0, time, num_steps)
-    coriolis_drift_distance = np.zeros((num_steps, 3))
-
+    # Integrate velocity to get drift distance
     for i in range(1, num_steps):
-        coriolis_drift_distance[i] = coriolis_drift_distance[i - 1] + \
-            0.5 * (coriolis_velocity[i] + coriolis_velocity[i - 1]) * (time_steps[i] - time_steps[i - 1])
+        coriolis_drift_distance[i] = coriolis_drift_distance[i - 1] \
+            + 0.5 * (coriolis_velocity[i] + coriolis_velocity[i - 1]) \
+            * (time_steps[i] - time_steps[i - 1])
 
-    return coriolis_drift_distance
+    return coriolis_velocity, coriolis_drift_distance
 
-# Updated total drift calculation
+# Calculate total drift based on input DataFrame row
 def calculate_total_drift(row, airtime, num_steps=100):
+    """
+    Calculates the total drift distance due to Coriolis effect for a given row.
+
+    Parameters:
+    row (pd.Series): A row from the DataFrame containing required data:
+                     - 'haversine_distance': Distance in kilometers.
+                     - 'x_direction', 'y_direction', 'z_direction': Direction components.
+                     - 'LATITUDE_ORIGIN', 'LATITUDE_DEST': Latitude values.
+    airtime (float): Total time over which the drift occurs (in seconds).
+    num_steps (int): Number of steps for integration (default is 100).
+
+    Returns:
+    float: Total drift distance magnitude at the last time step (in kilometers).
+    """
+    
+    # Step 2: Calculate the average velocity
+    average_velocity = row["haversine_distance"] / airtime
+    
+    # Step 3: Scale the direction components by the average velocity
+    scaled_direction = np.array([
+        row["x_direction"] * average_velocity,
+        row["y_direction"] * average_velocity,
+        row["z_direction"] * average_velocity
+    ])
+    
+    # Step 4: Calculate Coriolis acceleration at each step
+    coriolis_accelerations = coriolis_acc(
+        row["LATITUDE_ORIGIN"], row["LATITUDE_DEST"], 
+        scaled_direction, airtime, num_steps
+    )
+    
+    # Step 5: Integrate to get drift distance
+    _, coriolis_drift_distance = coriolis_integral(coriolis_accelerations, airtime, num_steps)
+    
+    # Step 6: Return the final drift distance at the last time step
+    return np.linalg.norm(coriolis_drift_distance[-1])  # Total drift distance magnitude
+
+# Updated total drift calculation for usage of coriolis_module
+def calcpp_total_drift(row, airtime, num_steps=100):
 
     coriolis_accelerations = coriolis_module.coriolis_acc(
         row["LATITUDE_ORIGIN"], row["LATITUDE_DEST"], 

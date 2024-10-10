@@ -36,6 +36,7 @@
 - finding a way to implement self written c++ into python
 - figure out how to setup a c++ module using pythons c-api
 - figure out docstring documentation for functions
+- do numerical integration in c++ instead of python
 
 #### *"machiene-learning"* 
 ---
@@ -48,11 +49,9 @@
 ## ...ahead
 ##### *"general section"*
 - add exception- and errorhandling
-
-##### *"something not like benchmarking"* 
-``` coriolis_analysis_03.ipynb && coriolis_analysis_03b.ipynb ```
 - add unit tests
-- learn benchmarking
+
+
 ---
 ## Motivation
 *"What is data-science?"* 
