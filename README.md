@@ -9,43 +9,42 @@
 - [LICENSE](#license)
 
 # Installation 
-  - ## 1. Clone the repo
+  1. Clone the repo
 ```bash
 git clone https://github.com/janiejestemja/coriolis_flights.git
 ```
-  - ## 2. Install the dependencies
+  2. Install the dependencies
 ```bash
 pip install -r requirements.txt
 ```
-  - ## 3. Additional setup
-- Python 3.12.3
-- g++ (Ubuntu 13.2.0-23ubuntu4) or higher
+  3. Additional setup
+     - Python 3.12.3
+     - g++ (Ubuntu 13.2.0-23ubuntu4) or higher
+
+     1. Debian
+        - *Checking for compiler*
+        Make sure to have g++ installed via:
+        ```bash
+        g++ --version
+        ```
+        and if not install it via: 
+        ```bash
+        sudo apt install g++
+        ```
 
 
-    - ### Debian
-          - #### *Checking for compiler*
-          Make sure to have g++ installed via:
-          ```bash
-          g++ --version
-          ```
-          and if not install it via: 
-          ```bash
-          sudo apt install g++
-          ```
+        - *Checking for "<Python.h>"*
+        Before building run 
+        ```bash
+        dpkg -l | grep python3-dev
+        ```
+        to check if necessary header for the c++ is in place.
 
 
-          - #### *Checking for "<Python.h>"*
-          Before building run 
-          ```bash
-          dpkg -l | grep python3-dev
-          ```
-          to check if necessary header for the c++ is in place.
-
-
-          If not install it via: 
-          ```bash
-          sudo apt install python3-dev
-          ```
+        If not install it via: 
+        ```bash
+        sudo apt install python3-dev
+        ```
 
 
 ### Fedora
