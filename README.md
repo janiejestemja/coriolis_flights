@@ -23,6 +23,8 @@ pip install -r requirements.txt
 
      1. Debian
         - *Checking for compiler*
+
+        
         Make sure to have g++ installed via:
         ```bash
         g++ --version
@@ -34,6 +36,8 @@ pip install -r requirements.txt
 
 
         - *Checking for "<Python.h>"*
+
+
         Before building run 
         ```bash
         dpkg -l | grep python3-dev
