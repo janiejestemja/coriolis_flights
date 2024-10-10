@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 
 ##### **Debian**
-
+---
 
 ###### *Checking for compiler*
 ---
@@ -53,7 +53,7 @@ sudo apt install python3-dev
 
 
 ##### **Fedora**
-
+---
 
 ###### *Checking for compiler*
 ---
