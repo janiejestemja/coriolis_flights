@@ -24,7 +24,7 @@ pip install -r requirements.txt
      1. Debian
         - *Checking for compiler*
 
-        
+
         Make sure to have g++ installed via:
         ```bash
         g++ --version
@@ -51,34 +51,39 @@ pip install -r requirements.txt
         ```
 
 
-### Fedora
-  - #### *Checking for compiler*
-Make sure to have g++ installed via:
-```bash
-g++ --version
-```
-and if not install it via: 
-```bash
-sudo dnf install g++
-```
+     2. Fedora
+        - *Checking for compiler*
 
 
-  - #### *Checking for "<Python.h>"*
-Before building run 
-```bash
-dnf list installed | grep python3-devel
-```
-to check if necessary header for the c++ is in place.
+        Make sure to have g++ installed via:
+        ```bash
+        g++ --version
+        ```
+        and if not install it via: 
+        ```bash
+        sudo dnf install g++
+        ```
 
 
-If not install it via: 
-```bash
-sudo dnf install python3-devel
-```
+        - *Checking for "<Python.h>"*
+
+
+        Before building run 
+        ```bash
+        dnf list installed | grep python3-devel
+        ```
+        to check if necessary header for the c++ is in place.
+
+
+        If not install it via: 
+        ```bash
+        sudo dnf install python3-devel
+        ```
 
 
 ## *Actually building the module*
----
+
+
 Change directory to ```~/coriolis_flights/coriolis_module/``` and run:
 ```bash
 python setup.py build_ext --inplace
@@ -94,31 +99,31 @@ path_to/venv/lib/python/site-packages/
 *For users not familiar with pythons virtual environments visit [python documentation](https://docs.python.org/3/library/venv.html) for more information.*
 
 
-## Dependencies
-#### Versions of Python libraries in use:
----
+# Dependencies
+## Versions of Python libraries in use:
 - numpy - 2.1.0 
 - pandas - 2.2.2
 - geopandas - 1.0.1 
 - geodatasets - 2024.8.0
 - scikit-learn - 1.5.2
 
-#### Version of Text-Editor: 
+## Version of Text-Editor: 
 - Jupyter Notebook - 7.2.1
 
-## Data
+
+# Data
 - the core dataset of the project consists of flight information for around 3 million flights.
 - the additional dataset is for geographical coordinates correspondend to the airports in (most) of the core dataset.
 
-## Interim Results
+
+# Interim Results
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
+
 
 Evaluations are experimental, use with caution.
 
 
 2,730,145 : Rows in dataframe at time of evaluation.
-
----
 
 
 ### Coriolis drift calculations
