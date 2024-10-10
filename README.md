@@ -19,9 +19,44 @@ pip install -r requirements.txt
 ```
 #### 3. Additional setup
 ---
-##### - Python 3.12.3
-##### - g++ (Ubuntu 13.2.0-23ubuntu4) or higher
+- Python 3.12.3
+- g++ (Ubuntu 13.2.0-23ubuntu4) or higher
 
+
+##### Fedora
+
+
+###### *Checking for compiler*
+---
+Make sure to have g++ installed via:
+```bash
+g++ --version
+```
+and if not install it via: 
+```bash
+sudo apt install g++
+```
+
+###### *Checking for "<Python.h>"*
+---
+Before building run 
+```bash
+dpkg -l | grep python3-dev
+```
+to check if necessary header for the c++ is in place.
+
+
+If not install it via: 
+```bash
+sudo apt install python3-dev
+```
+
+
+##### Fedora
+
+
+###### *Checking for compiler*
+---
 Make sure to have g++ installed via:
 ```bash
 g++ --version
@@ -32,7 +67,7 @@ sudo dnf install g++
 ```
 
 
-#### *Checking for "<Python.h>"*
+###### *Checking for "<Python.h>"*
 ---
 Before building run 
 ```bash
