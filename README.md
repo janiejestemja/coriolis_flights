@@ -25,7 +25,6 @@ pip install -r requirements.txt
 - g++ (Ubuntu 13.2.0-23ubuntu4) or higher
 
 
----
 ##### **Debian**
 ---
 
@@ -40,6 +39,7 @@ and if not install it via:
 sudo apt install g++
 ```
 
+---
 ###### *Checking for "<Python.h>"*
 ---
 Before building run 
@@ -55,6 +55,7 @@ sudo apt install python3-dev
 ```
 
 
+---
 ##### **Fedora**
 ---
 
@@ -70,6 +71,7 @@ sudo dnf install g++
 ```
 
 
+---
 ###### *Checking for "<Python.h>"*
 ---
 Before building run 
@@ -100,9 +102,6 @@ please do not forget to copy/move the .so file to the python packages location.
 path_to/venv/lib/python/site-packages/
 ```
 *For users not familiar with pythons virtual environments visit [python documentation](https://docs.python.org/3/library/venv.html) for more information.*
-
-
----
 
 
 ## Dependencies
