@@ -23,7 +23,7 @@ pip install -r requirements.txt
 - g++ (Ubuntu 13.2.0-23ubuntu4) or higher
 
 
-##### Fedora
+##### Debian
 
 
 ###### *Checking for compiler*
