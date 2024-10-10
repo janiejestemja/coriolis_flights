@@ -3,7 +3,6 @@
 ## Table of Contents
 - [Challenges](#challenges)
 - [Motivation](#motivation)
-- [Journey](#journey)
 
 ## Challenges...
 ##### *"Figure out the problem, then either build or pick up the tool you need, and solve it."*
@@ -97,26 +96,3 @@
 
 
 *"To learn problem solving you need a problem, right? There you go..."*
-
-
----
-## Journey
-### Creating Context.
-#### *"Why computer-science?"*
-- *"Within linguistics there exists a so called 'word-problem' when it comes to seperation of words and sentences."*
-- *"Within theoretical philosophy there exists a so called 'word-problem' when it comes to assigning a meaning to an expression."*
-- *"Stumbled over Chomsky's theories about categorization of natural languaged based on the level of complexity of grammar where the professor mentioned on a side-note, that the theory is more applicable to un-natural-languages (e.g. programming-languages) rather than natural languages."*
-
-*"These three points lead me to open-course-ware about a so called 'word-problem' within theoretical informatics, when it comes to (in-)finite (in-)deterministic automatons..."*
-
-#### *"Before this project came to be..."*
-*"...learned physics, higher-mathematics, as well as lingustics (focussed on intercomperehension), also a few other subjects not worth mentioning in the context of programming, but feel free to ask me should you be curious to find out some day - i am a curious nature and i bet you could teach me one thing or the other i didn't know about before, if you wouldn't be bothered by the thought of it."*
-
-#### *"Solving a problem requires a problem."*
-*"Lesson learned, next time i will read the documentation - if there is one."*
-
-#### *"What did you know at the start of this experiment?"*
-*"When it comes to data-science, i knew it is a word in relation to another word called pandas within context of python libraries. It was a very slow start."*
-
-#### *"Any major libraries picked up on the way?"*
-*"At this point i'd say pandas, geopandas and scikit-learn - navigating geodatasets can be a maze - much to learn."*
