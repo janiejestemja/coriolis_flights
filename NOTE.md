@@ -39,7 +39,7 @@
 
 #### *"machiene-learning"* 
 ---
-```coriolis_analysis_04.ipynb```
+```coriolis_analysis_03.ipynb```
 - implementation of scikit-learn (sklearn)
 - comparison of linear regression models in numpy and sklearn
 - plotting prediction-models on plotted data to visualise the fit
