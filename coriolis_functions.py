@@ -169,7 +169,8 @@ def coriolis_integral(coriolis_acceleration, time, num_steps):
 # Calculate total drift based on input DataFrame row
 def calculate_total_drift(row, airtime, num_steps=100):
     """
-    Calculates the total drift distance due to Coriolis effect for a given row.
+    Calculates the total drift distance due to Coriolis effect for a given row, 
+    using code written in python.
 
     Parameters:
     row (pd.Series): A row from the DataFrame containing required data:
@@ -205,8 +206,24 @@ def calculate_total_drift(row, airtime, num_steps=100):
     # Step 6: Return the final drift distance at the last time step
     return np.linalg.norm(coriolis_drift_distance[-1])  # Total drift distance magnitude
 
+
 # Updated total drift calculation for usage of coriolis_module
 def calcpp_total_drift(row, airtime, num_steps=100):
+    """
+    Calculates the total drift distance due to Coriolis effect for a given row, 
+    using code written in c++ and compiled into a python module.
+
+    Parameters:
+    row (pd.Series): A row from the DataFrame containing required data:
+                     - 'haversine_distance': Distance in kilometers.
+                     - 'x_direction', 'y_direction', 'z_direction': Direction components.
+                     - 'LATITUDE_ORIGIN', 'LATITUDE_DEST': Latitude values.
+    airtime (float): Total time over which the drift occurs (in seconds).
+    num_steps (int): Number of steps for integration (default is 100).
+
+    Returns:
+    float: Total drift distance magnitude at the last time step (in kilometers).
+    """
 
     coriolis_accelerations = coriolis_module.coriolis_acc(
         row["LATITUDE_ORIGIN"], row["LATITUDE_DEST"], 
