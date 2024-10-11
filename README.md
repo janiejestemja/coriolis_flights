@@ -144,8 +144,8 @@ Most of the functions in **coriolis_functions.py** have a *translation* in **cor
 
 
 Does delay at departure affect delay at arrival?
-- per one minute of delay at departure the delay at arrival increases by one minute as well (evaluation of slope[^3]).
-- the intercept of -5.85 can be evaluated or interpreted as follows: *"If a flight-departure has a delay of -5.85 minutes this flight will have no delay at arrival."* or *"For a flight to arrive without delay the departure has be 5.85 minutes early."* [^3]
+- per one minute of delay at departure the delay at arrival increases by one minute as well (evaluation of slope[^3] [^4]).
+- the intercept of -5.85 can be evaluated or interpreted as follows: *"If a flight-departure has a delay of -5.85 minutes this flight will have no delay at arrival."* or *"For a flight to arrive without delay the departure has be 5.85 minutes early."* [^3] [^4]
 
 
 [^1]: See ```coriolis_analysis_02.ipynb```.
