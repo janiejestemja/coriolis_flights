@@ -135,8 +135,8 @@ path_to/venv/lib/python/site-packages/
 Most of the functions in **coriolis_functions.py** have a *translation* in **coriolis_module.cpp** in addition to corresponding wrapper-functions. 
 
 
-- **coriolis_analysis_02.ipynb** does calculations in *"pure"* python, and ran for 5,468.66 seconds (92.81 minutes). 
-- **coriolis_analysis_02b.ipynb** does most of the calculations in c++, and ran for 1,671.03 seconds (27.85 minutes).
+- Calculations in *"pure"* python ran for 5,468.66 seconds (92.81 minutes).[^1] 
+- Calculations in c++ ran for 1,671.03 seconds (27.85 minutes).[^2]
 
 
 ##### To understand the term 'calculations' further feel free to take a look at the .ipynb files mentioned.
@@ -146,10 +146,11 @@ Most of the functions in **coriolis_functions.py** have a *translation* in **cor
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
 
 
-First models were able to predict, that delay at departure has a identity-relation to delay at arrival. In other words: *"If a departure has a delay of* x *it will have a delay of* x *at arrival."* [^1] 
+First models were able to predict, that delay at departure has a identity-relation to delay at arrival. In other words: *"If a departure has a delay of* x *it will have a delay of* x *at arrival."* [^3] 
 
-
-[^1]: Both models used for this prediction had a [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) of R² = 0.93.
+[^1]: See ```coriolis_analysis_02.ipynb```.
+[^2]: See ```coriolis_analysis_02b.ipynb```.
+[^3]: Both models used for this prediction had a [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) of R² = 0.93.
 
 
 *Section yet to be written...*
