@@ -121,12 +121,12 @@ path_to/venv/lib/python/site-packages/
 
 
 
-### Coriolis drift calculations
+### Coriolis drift calculations [^1] [^2]
 2,730,145 : Rows in dataframe at time of evaluation.
 
 
-- 3,506,000,878.64 : total travelled distance [km]
-- 928,589,014.17 : total drifted distance [km]
+- 3,506,000,878.64 km : total travelled distance
+- 928,589,014.17 km : total drifted distance
 - 0.2649 : average factor 
 - 26.49% : average percentage for drift per distance
 
