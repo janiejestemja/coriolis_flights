@@ -117,16 +117,14 @@ path_to/venv/lib/python/site-packages/
 
 
 # Interim Results
-###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
+**Evaluations are experimental, use with caution.**
 
-
-Evaluations are experimental, use with caution.
-
-
-2,730,145 : Rows in dataframe at time of evaluation.
 
 
 ### Coriolis drift calculations
+2,730,145 : Rows in dataframe at time of evaluation.
+
+
 - 3,506,000,878.64 : total travelled distance [km]
 - 928,589,014.17 : total drifted distance [km]
 - 0.2649 : average factor 
@@ -145,6 +143,15 @@ Most of the functions in **coriolis_functions.py** have a *translation* in **cor
 
 
 ### Machiene learning
+###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
+
+
+First models were able to predict, that delay at departure has a identity-relation to delay at arrival. In other words: *"If a departure has a delay of* x *it will have a delay of* x *at arrival."*  
+
+
+[^1] Both models used for this prediction had a [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) of R² = 0.93.
+
+
 *Section yet to be written...*
 
 
