@@ -139,9 +139,6 @@ Most of the functions in **coriolis_functions.py** have a *translation* in **cor
 - Calculations in c++ ran for 1,671.03 seconds (27.85 minutes).[^2]
 
 
-##### To understand the term 'calculations' further feel free to take a look at the .ipynb files mentioned.
-
-
 ### Machiene learning
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
 
