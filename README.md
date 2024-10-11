@@ -81,7 +81,7 @@ pip install -r requirements.txt
         ```
 
 
-## *Actually building the module*
+## *Building the module*
 
 
 Change directory to ```~/coriolis_flights/coriolis_module/``` and run:
