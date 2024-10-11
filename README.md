@@ -143,7 +143,7 @@ Most of the functions in **coriolis_functions.py** have a *translation* in **cor
 ###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
 
 
-First models were able to predict, that delay at departure has a identity-relation to delay at arrival. In other words: *"If a flight-departure has a delay of* **x** *this flight will have a delay of* **x** *at arrival."* [^3] [^4]
+First models were able to predict, that delay at departure has a identity-relation to delay at arrival.[^3] In other words: *"If a flight-departure has a delay of* **x** *this flight will have a delay of* **x** *at arrival."* [^4]
 
 [^1]: See ```coriolis_analysis_02.ipynb```.
 [^2]: See ```coriolis_analysis_02b.ipynb```.
