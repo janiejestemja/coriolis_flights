@@ -117,6 +117,9 @@ path_to/venv/lib/python/site-packages/
 
 
 # Interim Results
+###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
+
+
 **Evaluations are experimental, use with caution.**
 
 
@@ -140,7 +143,6 @@ Most of the functions in **coriolis_functions.py** have a *translation* in **cor
 
 
 ### Machiene learning
-###### *"Despite our analysis our results remain questionable and insignificant." - data-scepticist.*
 
 
 Does delay at departure affect delay at arrival?
