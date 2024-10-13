@@ -21,7 +21,7 @@ pip install -r requirements.txt
 - Python 3.12.3
 - g++ (Ubuntu 13.2.0-23ubuntu4) or higher
 
-1. Debian
+### Debian
 - *Checking for compiler*
 
 
@@ -51,7 +51,7 @@ sudo apt install python3-dev
 ```
 
 
-2. Fedora
+### Fedora
 - *Checking for compiler*
 
 
