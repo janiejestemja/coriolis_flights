@@ -43,6 +43,7 @@
 - implementation of scikit-learn (sklearn)
 - comparison of linear regression models in numpy and sklearn
 - plotting prediction-models on plotted data to visualise the fit
+- applying kmeans for clustering
 - calculations for the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) in numpy as well as sklearn
 
 ## ...ahead
