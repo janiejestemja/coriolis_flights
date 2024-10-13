@@ -18,67 +18,67 @@ git clone https://github.com/janiejestemja/coriolis_flights.git
 pip install -r requirements.txt
 ```
   3. Additional setup
-     - Python 3.12.3
-     - g++ (Ubuntu 13.2.0-23ubuntu4) or higher
+- Python 3.12.3
+- g++ (Ubuntu 13.2.0-23ubuntu4) or higher
 
-     1. Debian
-        - *Checking for compiler*
-
-
-        Make sure to have g++ installed via:
-        ```bash
-        g++ --version
-        ```
-        and if not install it via: 
-        ```bash
-        sudo apt install g++
-        ```
+1. Debian
+- *Checking for compiler*
 
 
-        - *Checking for "<Python.h>"*
+Make sure to have g++ installed via:
+```bash
+g++ --version
+```
+and if not install it via: 
+```bash
+sudo apt install g++
+```
 
 
-        Before building run 
-        ```bash
-        dpkg -l | grep python3-dev
-        ```
-        to check if necessary header for the c++ is in place.
+- *Checking for "<Python.h>"*
 
 
-        If not install it via: 
-        ```bash
-        sudo apt install python3-dev
-        ```
+Before building run 
+```bash
+dpkg -l | grep python3-dev
+```
+to check if necessary header for the c++ is in place.
 
 
-     2. Fedora
-        - *Checking for compiler*
+If not install it via: 
+```bash
+sudo apt install python3-dev
+```
 
 
-        Make sure to have g++ installed via:
-        ```bash
-        g++ --version
-        ```
-        and if not install it via: 
-        ```bash
-        sudo dnf install g++
-        ```
+2. Fedora
+- *Checking for compiler*
 
 
-        - *Checking for "<Python.h>"*
+Make sure to have g++ installed via:
+```bash
+g++ --version
+```
+and if not install it via: 
+```bash
+sudo dnf install g++
+```
 
 
-        Before building run 
-        ```bash
-        dnf list installed | grep python3-devel
-        ```
-        to check if necessary header for the c++ is in place.
+- *Checking for "<Python.h>"*
 
 
-        If not install it via: 
-        ```bash
-        sudo dnf install python3-devel
-        ```
+Before building run 
+```bash
+dnf list installed | grep python3-devel
+```
+to check if necessary header for the c++ is in place.
+
+
+If not install it via: 
+```bash
+sudo dnf install python3-devel
+```
 
 
 ## Building the module
