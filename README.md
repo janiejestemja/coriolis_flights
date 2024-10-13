@@ -1,5 +1,5 @@
 # Coriolis Flight Data Analysis 
-### An experimental project exploring data science, c++ integration, and basic machiene learning.
+### An experimental project exploring data science, c++ integration, and machiene learning.
 
 ## Table of Contents
 - [Installation](#installation)
