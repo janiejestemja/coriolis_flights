@@ -1,50 +1,50 @@
 # Note...
 
 ## Table of Contents
-- [Challenges](#challenges)
+- [Learn-Trajectory](#learn-trajectory)
 - [Motivation](#motivation)
 
-## Challenges...
+## Learn-Trajectory...
 ##### *"Figure out the problem, then either build or pick up the tool you need, and solve it."*
 ---
 #### *"general section"*
 ---
-- learn markdown basics for better documenation
+- learned markdown basics for better documenation
 - setup github per ssh in terminal
-- learn how to structure a README
-- learn how to setup a .gitignore
+- learned how to structure a README
+- learned how to setup a .gitignore
+- learned about garbage-collector 🌺
 
 #### *"data-science"* 
 ---
-```coriolis_analysis_01.ipynb```
-- implementation of pandas
-- very basic inferences based on column names
-- figure out how to merge data-sets
-- learn multiple ways to handle missing data
-- datatype conversions in dataframe according to data contained in columns
-- datetime-handling in pandas 
-- implementation of seaborn
-- histograms in pandas and seaborn
-- normalising data with pandas
-- revisiting matplotlib
+- implemted pandas
+- made very basic inferences based on column names
+- figured out how to merge data-sets
+- learned multiple ways to handle missing data
+- applied datatype conversions in dataframe according to data contained in columns
+- learned basic datetime-handling in pandas 
+- implemented seaborn
+- did histograms in pandas and seaborn
+- normalised data with pandas
+- revisited matplotlib
 
 #### *"c++ implementation"* 
 ---
-```coriolis_analysis_02.ipynb```
-- revisiting c++
-- finding a way to implement self written c++ into python
-- figure out how to setup a c++ module using pythons c-api
-- figure out docstring documentation for functions
-- do numerical integration in c++ instead of python
+- revisited c++
+- found a way to implement self written c++ into python
+- figured out how to setup a c++ module using pythons c-api
+- figured out docstring documentation for functions
+- did numerical integration in c++ instead of python
 
 #### *"machiene-learning"* 
 ---
-```coriolis_analysis_03.ipynb```
-- implementation of scikit-learn (sklearn)
-- comparison of linear regression models in numpy and sklearn
-- plotting prediction-models on plotted data to visualise the fit
-- applying kmeans for clustering
+- implemented scikit-learn (sklearn)
+- compared linear regression models in numpy and sklearn
 - calculations for the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) in numpy as well as sklearn
+- plotted prediction-models on data to visualise the fit
+- applyed [kmeans](https://en.wikipedia.org/wiki/K-means_clustering)
+- apllyed [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN) for noise-reduction in data 
+- automated the process of looking for clusters that make sense by defining functions and loops for visualising results
 
 ## ...ahead
 ##### *"general section"*
@@ -96,4 +96,4 @@
 *...it's my first project, come on, why make it so hard?"*
 
 
-*"To learn problem solving you need a problem, right? There you go..."*
+*"To learn problem solving you need a problem, right? There you go..."* 🌺
