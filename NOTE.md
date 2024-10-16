@@ -1,22 +1,49 @@
 # Note...
 
 ## Table of Contents
+- [Files](#files)
 - [Learn-Trajectory](#learn-trajectory)
 - [Motivation](#motivation)
 
+
+## Files
+### jupyter notebooks
+- coriolis_analysis_01
+  - contains a baisc exploratory data analysis (EDA)
+- coriolis_analysis_02
+  - contains calclations ran per python
+- coriolis_analysis_02b
+  - contains calculations ran per c++
+- coriolis_analysis_02c
+  - contains script used for saving the results
+
+
+### ...other noteworthy files
+- coriolis_module/coriolis_module.cpp
+  - contains functions written in c++
+- coriolis_module/setup.py
+  - contains python script for building a module containing the functions in coriolis_module.cpp
+- coriolis_functions.py
+  - contains functions written in python
+
+
 ## Learn-Trajectory...
 ##### *"Figure out the problem, then either build or pick up the tool you need, and solve it."*
----
-#### *"general section"*
----
+
+
+#### *...in general...*
+
+
 - learned markdown basics for better documenation
 - setup github per ssh in terminal
 - learned how to structure a README
 - learned how to setup a .gitignore
 - learned about garbage-collector 🌺
 
-#### *"data-science"* 
----
+
+#### *...in data-science...* 
+
+
 - implemted pandas
 - made very basic inferences based on column names
 - figured out how to merge data-sets
@@ -28,16 +55,19 @@
 - normalised data with pandas
 - revisited matplotlib
 
-#### *"c++ implementation"* 
----
+
+#### *...in c++ implementation...* 
+
+
 - revisited c++
 - found a way to implement self written c++ into python
 - figured out how to setup a c++ module using pythons c-api
 - figured out docstring documentation for functions
 - did numerical integration in c++ instead of python
 
-#### *"machiene-learning"* 
----
+#### *...in machiene-learning...* 
+
+
 - implemented scikit-learn (sklearn)
 - compared linear regression models in numpy and sklearn
 - calculations for the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) in numpy as well as sklearn
@@ -45,11 +75,6 @@
 - applyed [kmeans](https://en.wikipedia.org/wiki/K-means_clustering)
 - apllyed [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN) for noise-reduction in data 
 - automated the process of looking for clusters that make sense by defining functions and loops for visualising results
-
-## ...ahead
-##### *"general section"*
-- add exception- and errorhandling
-- add unit tests
 
 
 ---
