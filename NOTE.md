@@ -6,7 +6,8 @@
 - [Motivation](#motivation)
 
 
-## Files
+## Files...
+##### ...simple description about what to find where. 🌺
 ### jupyter notebooks
 - coriolis_analysis_01
   - contains a baisc exploratory data analysis (EDA)
