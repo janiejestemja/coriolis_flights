@@ -10,7 +10,7 @@
 ##### ...simple description about what to find where. 🌺
 ### jupyter notebooks
 - coriolis_analysis_01
-  - contains a baisc exploratory data analysis (EDA)
+  - contains a basic exploratory data analysis (EDA)
 - coriolis_analysis_02
   - contains calclations ran per python
 - coriolis_analysis_02b
