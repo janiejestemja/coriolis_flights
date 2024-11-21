@@ -1,0 +1,6 @@
+# Ignore data and directories
+.ipynb_checkpoints/
+__pycache__/
+coriolis_module/build
+coriolis_module/coriolis_module.cpython-313-x86_64-linux-gnu.so
+data/
